@@ -1,0 +1,505 @@
+<!doctype html>
+<html class="scroll-smooth ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Monomaniac+One&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+	* {
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+		scrollbar-width: thin;
+	}
+
+	/* Chrome, Edge, and Safari */
+	*::-webkit-scrollbar {
+	  width: 10px;
+	}
+
+	.navbar-brand {
+		font-family: 'Monomaniac One', sans-serif;
+		letter-spacing: 0.1em;
+		font-size: 1.5rem;
+	}
+
+	.section-1-p {
+		font-family: 'Inter', sans-serif;
+	}
+
+	.navbar-link {
+		font-family: 'IBM Plex Mono', monospace;
+	}
+
+	.navbar-bottom-shadow {
+	  box-shadow: 0 8px 6px -6px black;
+	}
+
+	.sidebar-left-shadow {
+	  box-shadow: -8px 0 6px -6px black;
+	}
+
+	#about {
+		scroll-behaviour: smooth;
+	}
+
+	@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+	</style>
+</head>
+<body class="antialiased text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900">
+
+	<nav class="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 dark:border-slate-50/[0.06] bg-white/95 supports-backdrop-blur:bg-white/60 dark:bg-transparent navbar-bottom-shadow">
+	  <div class="mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="flex items-center justify-between h-16">
+			<a href="#" class="navbar-brand font-extrabold uppercase text-sky-500 mb-0 pb-0">Kartik Gupta</a>
+			<nav class="text-sm leading-6 text-slate-700 dark:text-slate-200 hidden sm:block">
+			  <ol class="flex space-x-8 items-center">
+				<li>
+				  <a class="hover:text-sky-500 dark:hover:text-sky-400 navbar-link" href="#home">Home</a>
+				</li>
+				<li>
+				  <a class="hover:text-sky-500 dark:hover:text-sky-400 navbar-link" href="#about" >About</a>
+				</li>
+				<li>
+				  <a class="hover:text-sky-500 dark:hover:text-sky-400 navbar-link" href="#experience">Experience</a>
+				</li>
+				<li>
+				  <a class="hover:text-sky-500 dark:hover:text-sky-400 navbar-link" href="#projects">Project</a>
+				</li>
+				<li>
+				  <a class="hover:text-sky-500 dark:hover:text-sky-400 navbar-link" href="#contact">Contact</a>
+				</li>
+				<li>
+				  <a href="https://drive.google.com/file/d/16sxpjGbkmJKMnVpzOuOd2HHDCk3y_N7U/view?usp=sharing" target="_blank">
+					<button class="text-sm font-semibold border border-sky-500 text-sky-500 hover:text-white hover:bg-sky-500 px-2 py-1 rounded-md transition-colors duration-300 ease-in-out navbar-link">Resume</button>
+				  </a>
+				</li>
+			  </ol>
+			</nav>
+			<div class="block sm:hidden">
+				<button id="sidebarButton"><svg xmlns="http://www.w3.org/2000/svg" class="text-2xl text-slate-700 dark:text-slate-200 hover:text-sky-500 dark:hover:text-sky-400 navbar-link" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1h-10a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/></svg></button>
+			</div>
+		</div>
+	  </div>
+
+<div id="sidebar" class="hidden fixed inset-y-0 right-0 w-64 h-screen backdrop-blur flex-none transition-colors transition-opacity delay-100 duration-500 bg-white/95 drop-shadow-[0_35px_35px_rgba(0,0,0,0.50)] dark:bg-slate-900/100 supports-backdrop-blur:bg-white/60  opacity-0">
+  <!-- Sidebar content goes here -->
+  <div class="flex justify-end mt-6">
+	<button id="sidebarCancel">
+		<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="text-2xl text-sky-500 cursor-pointer hover:text-red-500 mr-6" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg></button>
+	</div>
+  <nav class="text-sm leading-6 text-slate-700 dark:text-slate-200">
+	  <ol class="flex flex-col gap-8 items-center">
+		<li>
+		  <a class="hover:text-sky-500 dark:hover:text-sky-400 navbar-link" href="#home">Home</a>
+		</li>
+		<li>
+		  <a class="hover:text-sky-500 dark:hover:text-sky-400 navbar-link" href="#about">About</a>
+		</li>
+		<li>
+		  <a class="hover:text-sky-500 dark:hover:text-sky-400 navbar-link" href="#experience">Experience</a>
+		</li>
+		<li>
+		  <a class="hover:text-sky-500 dark:hover:text-sky-400 navbar-link" href="#projects">Project</a>
+		</li>
+		<li>
+		  <a class="hover:text-sky-500 dark:hover:text-sky-400 navbar-link" href="#contact">Contact</a>
+		</li>
+		<li>
+		  <a href="https://drive.google.com/file/d/16sxpjGbkmJKMnVpzOuOd2HHDCk3y_N7U/view?usp=sharing" target="_blank">
+			<button class="text-sm font-semibold border border-sky-500 text-sky-500 hover:text-white hover:bg-sky-500 px-2 py-1 rounded-md transition-colors duration-300 ease-in-out navbar-link">Resume</button>
+		  </a>
+		</li>
+		<li>
+		  <div class="inline-flex items-center justify-center w-full py-6 gap-4">
+			  <a href="https://github.com/iam-jatin" target="_blank">  // have to change//
+				<span class="w-10 h-10 text-xl border-[2px] border-sky-200 hover:border-sky-500 text-sky-200 rounded-full inline-flex items-center justify-center hover:text-sky-500 cursor-pointer hover:-translate-y-2 transition-all duration-300">
+				  <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+					<path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path>
+				  </svg>
+				</span>
+			  </a>
+			  <a href="https://www.linkedin.com/in/ikartik-gupta/" target="_blank">
+				<span class="w-10 h-10 text-xl border-[2px] border-sky-200 hover:border-sky-500 text-sky-200 rounded-full inline-flex items-center justify-center hover:text-sky-500 cursor-pointer hover:-translate-y-2 transition-all duration-300">
+				  <svg stroke="currentColor" fill="currentColor" stroke-width="30" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+					<path d="M997.795 1002.43H789.769c-14.715 0-26.607-11.892-26.607-26.607V640.806c0-114.898-59.263-114.898-78.816-114.898-52.611 0-74.986 41.525-82.243 59.466-3.427 8.064-5.04 21.77-5.04 40.921v349.732c0 14.715-11.892 26.607-26.606 26.607H362.23c-7.055 0-13.909-2.822-18.948-7.86s-7.861-11.895-7.66-18.95c0-5.643 2.822-567.432 0-624.881-.403-7.257 2.217-14.312 7.257-19.553s11.893-8.265 19.35-8.265h208.228c14.714 0 26.607 11.892 26.607 26.607v15.723c35.074-31.244 85.669-57.046 161.058-57.046 166.702 0 266.28 115.3 266.28 308.409v359.005c0 14.715-11.893 26.607-26.607 26.607zm-181.418-53.214l155.012-.004V616.815c0-162.268-77.606-255.193-213.065-255.193-90.507 0-134.45 45.153-162.066 86.476-3.225 10.885-13.506 18.949-25.6 18.949h-1.41c-9.677 0-18.546-5.242-23.181-13.707-3.628-6.653-4.435-14.313-2.016-21.368v-55.835H389.443c1.411 111.068 0 470.477-.403 572.877h154.809V626.09c0-26.809 2.822-46.16 8.869-60.875 23.383-57.852 72.566-92.724 131.427-92.724 83.855 0 132.03 61.28 132.03 168.113v308.611h.204zm-569.246 53.21H38.904c-14.715 0-26.607-11.892-26.607-26.607V349.73c0-14.715 11.892-26.608 26.607-26.608h208.227c14.715 0 26.607 11.893 26.607 26.607V975.82c0 14.715-11.892 26.608-26.607 26.608zM65.513 949.213h155.01V376.336H65.514v572.876zm77.605-658.344l-1.412-.001c-82.041 0-141.707-56.844-141.707-135.055 0-78.009 60.674-134.854 144.529-134.854 82.444 0 141.305 55.231 142.918 134.249 0 78.816-60.674 135.66-144.328 135.66zm1.41-216.492c-54.627 0-91.313 32.857-91.313 81.639 0 47.974 36.284 81.637 88.492 81.637h1.41c54.426 0 91.112-32.857 91.112-81.638-1.008-49.386-36.283-81.638-89.701-81.638z"></path>
+				  </svg>
+				</span>
+			  </a>
+			  <a href="https://www.instagram.com/itskartik.g/" target="_blank">
+				<span class="w-10 h-10 text-xl border-[2px] border-sky-200 hover:border-sky-500 text-sky-200 rounded-full inline-flex items-center justify-center hover:text-sky-500 cursor-pointer hover:-translate-y-2 transition-all duration-300">
+				  <svg stroke="currentColor" fill="currentColor" stroke-width="30" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+					<path d="M511 4c138 0 155 1 209 3 53 2 90 11 123 24 34 13 62 30 90 58s45 56 58 90c13 33 22 70 24 123 2 54 3 71 3 209s-1 155-3 209c-2 53-11 90-24 123-13 34-30 62-58 90s-56 45-90 58c-33 13-70 22-123 24-54 2-71 3-209 3s-155-1-209-3c-53-2-90-11-123-24-34-13-62-30-90-58s-45-56-58-90C18 810 9 773 7 720c-2-54-3-71-3-209s1-155 3-209c2-53 11-90 24-123 13-34 30-62 58-90s56-45 90-58c33-13 70-22 123-24 54-2 71-3 209-3zm0 66c-144 0-161 1-217 3-52 2-81 12-100 19-49 20-82 53-102 102-7 19-17 48-19 100-2 56-3 73-3 217s1 161 3 217c2 52 12 81 19 100 20 49 53 82 102 102 19 7 48 17 100 19 56 2 73 3 217 3s161-1 217-3c52-2 81-12 100-19 49-20 82-53 102-102 7-19 17-48 19-100 2-56 3-73 3-217s-1-161-3-217c-2-52-12-81-19-100-20-49-53-82-102-102-19-7-48-17-100-19-56-2-73-3-217-3zm0 644c112 0 203-91 203-203s-91-203-203-203-203 91-203 203 91 203 203 203zm0-463c144 0 260 116 260 260S655 771 511 771 251 655 251 511s116-260 260-260zm332-10c0 34-28 60-62 60s-60-26-60-60 26-62 60-62 62 28 62 62z"></path>
+				  </svg>
+				</span>
+			  </a>
+			</div>
+		</li>
+		<li>
+		  <a class="text-sky-500 hover:text-sky-400 text-sm font-bold navbar-link" href="mailto:kartik.6255@gmail.com">kartik.6255@gmail.com</a>
+		</li>
+	  </ol>
+	</nav>
+</div>
+
+	</nav>
+
+	<div id="home" class="h-screen flex items-center justify-center sm:justify-start mx-auto p-4">
+		<section class="px-0 sm:px-40">
+			<main class="">
+				<h3 class="navbar-link text-sky-500 text-sm sm:text-base font-semibold mb-5">Hi, my name is</h3>
+				<h1 class="text-4xl sm:text-6xl font-bold dark:text-white text-black mb-5">Kartik Gupta.</h1>
+				<h1 class="text-4xl sm:text-6xl font-bold mb-10">Software Engineer</h1>
+				<p class="md:max-w-[600px] mt-4 text-sm leading-6 col-start-1 sm:col-span-2 lg:mt-6 lg:row-start-4 lg:col-span-1 dark:text-slate-400 mb-12" style="opacity: 1; transform: none;">I'm a software engineer with 1+ years of experience in web development. I have a strong foundation in front-end development and I am skilled in creating user-friendly and responsive web applications using React and its ecosystem.</p>
+				<a href="mailto:kartik.6255@gmail.com" target="_blank">
+					<button class="w-40 border border-sky-500 text-sky-500 hover:text-white hover:bg-sky-500 p-2 sm:p-4 rounded-md transition-colors duration-300 ease-in-out navbar-link">Hire me!</button>
+				</a>
+			</main>
+		</section>
+	</div>
+
+  <div id="about" class="flex items-center justify-center sm:justify-start p-4 mb-16">
+	  <section class="px-0 sm:px-40">
+		<!-- Your content here -->
+		<main class="flex items-center">
+				<div class="w-full sm:w-4/5 pr-8">
+				  <p class="text-xl leading-4 font-medium text-sky-500 mb-8">About Me</p>
+				  <h1 class="mt-1 text-2xl font-semibold dark:text-white text-black sm:text-slate-900 md:text-4xl text-black dark:sm:text-white">Kartik Gupta</h1>
+				  <h1 class="mt-1 text-lg font-semibold dark:text-white sm:text-slate-900 text-slate-900 md:text-lg dark:sm:text-white">Frontend Developer</h1>
+				  <dl class="mt-4 text-xs font-medium flex items-center row-start-2 sm:mt-1 sm:row-start-3 md:mt-2.5 lg:row-start-2 mb-8">
+					  <dt class="sr-only">Reviews</dt>
+					  <dd class="text-sky-600 flex items-center dark:text-sky-400">
+						<svg width="24" height="24" fill="none" aria-hidden="true" class="mr-1 stroke-current dark:stroke-sky-500">
+						  <path d="m12 5 2 5h5l-4 4 2.103 5L12 16l-5.103 3L9 14l-4-4h5l2-5Z"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						<span>1+ Year <span class="text-slate-400 font-normal">(Experience)</span></span>
+					  </dd>
+					  <dt class="sr-only">Location</dt>
+					  <dd class="flex items-center">
+						<svg width="2" height="2" aria-hidden="true" fill="currentColor" class="mx-3 text-slate-300">
+						  <circle cx="1" cy="1" r="1" />
+						</svg>
+						<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 text-slate-400 dark:text-slate-500" aria-hidden="true">
+						  <path d="M18 11.034C18 14.897 12 19 12 19s-6-4.103-6-7.966C6 7.655 8.819 5 12 5s6 2.655 6 6.034Z" />
+						  <path d="M14 11a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
+						</svg>
+						Greater Noida, Uttar Pradesh, India
+					  </dd>
+					</dl>
+					<div>
+						<div class="">
+							<p class=" text-sm leading-6 dark:text-slate-400 mb-4">
+							  Hello! My name is Kartik Gupta and I am a web developer experienced in React With a strong foundation in front-end development. I can create robust web applications from start to finish.
+							</p>
+							<p class=" text-sm leading-6 dark:text-slate-400 mb-4">
+							  My expertise lies in building dynamic user interfaces, implementing secure server-side logic, and delivering scalable solutions. I am dedicated to delivering high-quality, innovative applications that meet client needs.
+							</p>
+							<p class=" text-sm leading-6 dark:text-slate-400 mb-4">
+							  Building Seamless Web Experiences, One Stack at a Time.
+							</p>
+							<p class="text-sm leading-6 dark:text-slate-400 mb-4">
+							  Here are my skills I’ve experience in:
+							</p>
+						</div>
+						<div>
+							<ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 navbar-link text-sky-500 text-xs font-semibold ">
+							  <li>▹ HTML/CSS</li>
+							  <li>▹ JavaScript</li>
+							  <li>▹ Bootstrap</li>
+							  <li>▹ TailWind CSS</li>
+							  <li>▹ Bootstrap</li>
+							  <li>▹ ReactJS</li>
+							  <li>▹ Python</li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="w-1/5 hidden sm:block">
+					<img src="images/man.png" alt="" class="w-full h-auto sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
+				</div>
+
+		</main>
+	  </section>
+  </div>
+
+  <div id="experience" class="flex items-center justify-center sm:justify-start p-4 mb-16">
+	  <section class="px-0 sm:px-40">
+		<p class="text-xl leading-4 font-medium text-sky-500 mb-8">Experience</p>
+		<div class="w-full mt-10 flex items-start flex-col md:flex-row gap-16">
+			  <!-- <ul class="md:w-32 flex flex-col"> -->
+				<!-- <li id="angularTab" class="border-l-2 text-sky-500 border-sky-500 bg-opacity-50 hover:bg-[#112240] py-3 text-sm cursor-pointer duration-300 px-8 font-medium">Angular</li> -->
+				<!-- <li id="reactTab" class="border-sky-500/[.2] border-l-2 bg-transparent hover:bg-[#112240] py-3 text-sm cursor-pointer duration-300 px-8 font-medium">Altruism Labs</li> -->
+				<!-- <li id="javaTab" class="border-sky-500/[.2] border-l-2 bg-transparent hover:bg-[#112240] py-3 text-sm cursor-pointer duration-300 px-8 font-medium">Java</li> -->
+			  <!-- </ul> -->
+			  <ul class="md:w-48 flex flex-row flex-wrap md:flex-col">
+				  <li id="1stTab" class="border-b-2 md:border-b-0 sm:border-l-0 md:border-l-2 text-sky-500 border-sky-500 hover:bg-opacity-20 dark:hover:bg-[#112240] hover:bg-sky-500 py-3 text-sm cursor-pointer duration-300 px-8 font-medium">Wipro</li>
+				  <li id="2ndTab" class="border-b-2 md:border-b-0 border-sky-500/[.2] sm:border-l-0 md:border-l-2 hover:bg-opacity-20 dark:hover:bg-[#112240] hover:bg-sky-500 py-3 text-sm cursor-pointer duration-300 px-8 font-medium">Wipro technologies</li>
+				</ul>
+			  <div id="1stContent" class="w-full">
+				  <h3 class="flex gap-1 font-medium text-xl dark:text-white text-black">Software Developer L1 <span class="text-sky-500">@Wipro</span></h3>
+				  <p class="text-sm mt-1 font-medium">May 2022 - present</p>
+				  <ul class="mt-6 flex flex-col gap-3">
+					<li class="text-sm leading-6 dark:text-slate-400">
+					  <div class="flex items-start">
+						<span class="text-sky-500 font-semibold text-base mr-4">▹</span>
+						<span>Crafting top-notch code for a wide range of projects, ensuring high quality and performance.<span>
+					  </div>
+					</li>
+					<li class="text-sm leading-6 dark:text-slate-400">
+					  <div class="flex items-start">
+						<span class="text-sky-500 font-semibold text-base mr-4">▹</span>
+						<span>Utilizing diverse technologies such as ReactJS, Html, CSS to create modern and efficient solutions.</span>
+					  </div>
+					</li>
+					<li class="text-sm leading-6 dark:text-slate-400">
+						<div class="flex items-start">
+						  <span class="text-sky-500 font-semibold text-base mr-4">▹</span>
+						  <span>Developing user Interfaces as per client suggestion along with unit test cases.</span>
+						</div>
+					  </li>
+					<li class="text-sm leading-6 dark:text-slate-400">
+					  <div class="flex items-start">
+						<span class="text-sky-500 font-semibold text-base mr-4">▹</span>
+						<span>Collaborating seamlessly with multidisciplinary teams, including engineers, designers, producers, and clients, to deliver successful outcomes on a daily basis.</span>
+					  </div>
+					</li>
+				  </ul>
+			  </div>
+			  <div id="2ndContent" class="w-full hidden">
+				  <h3 class="flex gap-1 font-medium text-xl dark:text-white text-black">Frontend Intern <span class="text-sky-500">Wipro technologies</span></h3>
+				  <p class="text-sm mt-1 font-medium">Feb 2022 - Apr 2022</p>
+				  <ul class="mt-6 flex flex-col gap-3">
+					<li class="text-sm leading-6 dark:text-slate-400">
+					  <div class="flex items-start">
+						<span class="text-sky-500 font-semibold text-base mr-4">▹</span>
+						<span>Skilled frontend developer experienced in ReactJS, AngularJS, Bootstrap, and Tailwind CSS. Passionate about creating visually appealing and user-friendly web interfaces.<span>
+					  </div>
+					</li>
+					<li class="text-sm leading-6 dark:text-slate-400">
+					  <div class="flex items-start">
+						<span class="text-sky-500 font-semibold text-base mr-4">▹</span>
+						<span>Proficient in leveraging modern frontend technologies to develop responsive and interactive web applications for seamless user experiences across devices and browsers.</span>
+					  </div>
+					</li>
+					<li class="text-sm leading-6 dark:text-slate-400">
+					  <div class="flex items-start">
+						<span class="text-sky-500 font-semibold text-base mr-4">▹</span>
+						<span>Collaborative team player eager to learn and contribute, seeking an opportunity to work alongside experienced developers, designers, and product teams to deliver impactful frontend solutions.</span>
+					  </div>
+					</li>
+				  </ul>
+			  </div>
+			</div>
+	  </section>
+  </div>
+
+  <div id="projects" class="flex items-center justify-center sm:justify-start p-4 mb-16">
+	  <section class="px-0 sm:px-40">
+		<main class="mx-auto w-full">
+	      <p class="text-xl leading-4 font-medium text-sky-500 mb-8">Projects</p>
+		  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-10 lgl:px-10">
+			<a href="#" class="text-slate-200" target="_blank">
+			  <div class="w-full h-80 rounded-lg bg-white/95 drop-shadow-[0_15px_15px_rgba(0,0,0,0.25)] dark:bg-[#112240] p-7 flex flex-col justify-center gap-6 hover:-translate-y-2 transition-transform duration-300 hover:text-sky-500">
+				<div class="flex justify-between items-center">
+				  <svg class="text-4xl text-sky-500" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+					<path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"></path>
+				  </svg>
+				  <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 15 15" class="text-2xl dark:text-slate-300 text-slate-700 hover:text-sky-500" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M12 13C12.5523 13 13 12.5523 13 12V3C13 2.44771 12.5523 2 12 2H3C2.44771 2 2 2.44771 2 3V6.5C2 6.77614 2.22386 7 2.5 7C2.77614 7 3 6.77614 3 6.5V3H12V12H8.5C8.22386 12 8 12.2239 8 12.5C8 12.7761 8.22386 13 8.5 13H12ZM9 6.5C9 6.5001 9 6.50021 9 6.50031V6.50035V9.5C9 9.77614 8.77614 10 8.5 10C8.22386 10 8 9.77614 8 9.5V7.70711L2.85355 12.8536C2.65829 13.0488 2.34171 13.0488 2.14645 12.8536C1.95118 12.6583 1.95118 12.3417 2.14645 12.1464L7.29289 7H5.5C5.22386 7 5 6.77614 5 6.5C5 6.22386 5.22386 6 5.5 6H8.5C8.56779 6 8.63244 6.01349 8.69139 6.03794C8.74949 6.06198 8.80398 6.09744 8.85143 6.14433C8.94251 6.23434 8.9992 6.35909 8.99999 6.49708L8.99999 6.49738" fill="currentColor"></path>
+				  </svg>
+				</div>
+				<div>
+				  <h2 class="text-xl font-semibold text-black dark:text-white">DEALER MANAGEMENT SYSTEM</h2>
+				  <p class="text-sm mt-3 dark:text-slate-300 text-slate-700"> Developed a Dealer Management System (DMS) using React.js and
+					Redux, ensuring a user-friendly interface for efficient dealership
+					operations.</p>
+				</div>
+				<ul class="text-xs mdl:text-sm flex items-center gap-2 justify-between flex-wrap navbar-link text-sky-500 text-xs font-semibold">
+				  <li>HTML/CSS</li>
+				  <li>JavaScript</li>
+				  <li>Bootstrap</li>
+				  <li>ReactJS</li>
+
+				</ul>
+			  </div>
+			</a>
+			<a href="#" class="text-slate-200" target="_blank">
+			  <div class="w-full h-80 rounded-lg bg-white/95 drop-shadow-[0_15px_15px_rgba(0,0,0,0.25)] dark:bg-[#112240] p-7 flex flex-col justify-center gap-6 hover:-translate-y-2 transition-transform duration-300 hover:text-sky-500">
+				<div class="flex justify-between items-center">
+				  <svg class="text-4xl text-sky-500" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+					<path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"></path>
+				  </svg>
+				  <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 15 15" class="text-2xl dark:text-slate-300 text-slate-700 hover:text-sky-500" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M12 13C12.5523 13 13 12.5523 13 12V3C13 2.44771 12.5523 2 12 2H3C2.44771 2 2 2.44771 2 3V6.5C2 6.77614 2.22386 7 2.5 7C2.77614 7 3 6.77614 3 6.5V3H12V12H8.5C8.22386 12 8 12.2239 8 12.5C8 12.7761 8.22386 13 8.5 13H12ZM9 6.5C9 6.5001 9 6.50021 9 6.50031V6.50035V9.5C9 9.77614 8.77614 10 8.5 10C8.22386 10 8 9.77614 8 9.5V7.70711L2.85355 12.8536C2.65829 13.0488 2.34171 13.0488 2.14645 12.8536C1.95118 12.6583 1.95118 12.3417 2.14645 12.1464L7.29289 7H5.5C5.22386 7 5 6.77614 5 6.5C5 6.22386 5.22386 6 5.5 6H8.5C8.56779 6 8.63244 6.01349 8.69139 6.03794C8.74949 6.06198 8.80398 6.09744 8.85143 6.14433C8.94251 6.23434 8.9992 6.35909 8.99999 6.49708L8.99999 6.49738" fill="currentColor"></path>
+				  </svg>
+				</div>
+				<div>
+				  <h2 class="text-xl font-semibold text-black dark:text-white">CRYPTOCURRENCY APPLICATION</h2>
+				  <p class="text-sm mt-3 dark:text-slate-300 text-slate-700">Developed An Project where the users can get daily price updates of
+					the crypto coins using using API.</p>
+				</div>
+				<ul class="text-xs mdl:text-sm flex items-center gap-2 justify-between flex-wrap navbar-link text-sky-500 text-xs font-semibold">
+					<li>HTML/CSS</li>
+					<li>JavaScript</li>
+					<li>ReactJS</li>
+				</ul>
+			  </div>
+			</a>
+			<!-- <a href="https://github.com/iam-jatin/Alpha-Rumors-Blogging-Website-With-Admin-Panel" class="text-slate-200" target="_blank">
+			  <div class="w-full h-80 rounded-lg bg-white/95 drop-shadow-[0_15px_15px_rgba(0,0,0,0.25)] dark:bg-[#112240] p-7 flex flex-col justify-center gap-6 hover:-translate-y-2 transition-transform duration-300 hover:text-sky-500">
+				<div class="flex justify-between items-center">
+				  <svg class="text-4xl text-sky-500" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+					<path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"></path>
+				  </svg>
+				  <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 15 15" class="text-2xl dark:text-slate-300 text-slate-700 hover:text-sky-500" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M12 13C12.5523 13 13 12.5523 13 12V3C13 2.44771 12.5523 2 12 2H3C2.44771 2 2 2.44771 2 3V6.5C2 6.77614 2.22386 7 2.5 7C2.77614 7 3 6.77614 3 6.5V3H12V12H8.5C8.22386 12 8 12.2239 8 12.5C8 12.7761 8.22386 13 8.5 13H12ZM9 6.5C9 6.5001 9 6.50021 9 6.50031V6.50035V9.5C9 9.77614 8.77614 10 8.5 10C8.22386 10 8 9.77614 8 9.5V7.70711L2.85355 12.8536C2.65829 13.0488 2.34171 13.0488 2.14645 12.8536C1.95118 12.6583 1.95118 12.3417 2.14645 12.1464L7.29289 7H5.5C5.22386 7 5 6.77614 5 6.5C5 6.22386 5.22386 6 5.5 6H8.5C8.56779 6 8.63244 6.01349 8.69139 6.03794C8.74949 6.06198 8.80398 6.09744 8.85143 6.14433C8.94251 6.23434 8.9992 6.35909 8.99999 6.49708L8.99999 6.49738" fill="currentColor"></path>
+				  </svg>
+				</div>
+				<div>
+				  <h2 class="text-xl font-semibold text-black dark:text-white">Alpha Rumors</h2>
+				  <p class="text-sm mt-3 dark:text-slate-300 text-slate-700">Developed a user-friendly blogging application for publishing and sharing thoughts. Features include post creation, editing, commenting, and social sharing. Designed for scalability and optimal performance.</p>
+				</div>
+				<ul class="text-xs mdl:text-sm flex items-center gap-2 justify-between flex-wrap navbar-link text-sky-500 text-xs font-semibold">
+				  <li>HTML/CSS</li>
+				  <li>JavaScript</li>
+				  <li>Bootstrap</li>
+				  <li>PHP</li>
+				  <li>MySQL</li>
+				</ul>
+			  </div>
+			</a> -->
+		  </div>
+		</main>
+	  </section>
+  </div>
+
+  <div id="contact" class="flex items-center justify-center mx-auto p-4 max-w-full">
+	  <section class="px-0 sm:px-40">
+		<main class="flex flex-col gap-4 items-center justify-center">
+		  <p class="text-xl leading-4 font-medium text-sky-500 mb-8">Contact</p>
+		  <h2 class="text-3xl sm:text-5xl font-semibold dark:text-slate-300 text-slate-700">Get In Touch</h2>
+		  <p class="text-center mt-8 text-sm leading-6 dark:text-slate-400 md:max-w-[600px]">I am currently looking for new opportunities, my inbox is always open. Whether you have a opportunity, question or just want to say hi, I’ll try my best to get back to you!</p>
+		  <a href="mailto:kartik.6255@gmail.com">
+			<button class="w-40 border border-sky-500 text-sky-500 hover:text-white hover:bg-sky-500 p-2 sm:p-4 rounded-md transition-colors duration-300 ease-in-out navbar-link my-8">Say Hello</button>
+		  </a>
+			<div class="inline-flex items-center justify-center w-full py-6 gap-4">
+			  <!-- <a href="https://github.com/iam-jatin" target="_blank">
+				<span class="w-10 h-10 text-xl border-[2px] border-sky-200 hover:border-sky-500 text-sky-200 rounded-full inline-flex items-center justify-center hover:text-sky-500 cursor-pointer hover:-translate-y-2 transition-all duration-300">
+				  <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+					<path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path>
+				  </svg>
+				</span>
+			  </a> -->
+			  <a href="https://www.linkedin.com/in/ikartik-gupta/" target="_blank">
+				<span class="w-10 h-10 text-xl border-[2px] border-sky-200 hover:border-sky-500 text-sky-200 rounded-full inline-flex items-center justify-center hover:text-sky-500 cursor-pointer hover:-translate-y-2 transition-all duration-300">
+				  <svg stroke="currentColor" fill="currentColor" stroke-width="30" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+					<path d="M997.795 1002.43H789.769c-14.715 0-26.607-11.892-26.607-26.607V640.806c0-114.898-59.263-114.898-78.816-114.898-52.611 0-74.986 41.525-82.243 59.466-3.427 8.064-5.04 21.77-5.04 40.921v349.732c0 14.715-11.892 26.607-26.606 26.607H362.23c-7.055 0-13.909-2.822-18.948-7.86s-7.861-11.895-7.66-18.95c0-5.643 2.822-567.432 0-624.881-.403-7.257 2.217-14.312 7.257-19.553s11.893-8.265 19.35-8.265h208.228c14.714 0 26.607 11.892 26.607 26.607v15.723c35.074-31.244 85.669-57.046 161.058-57.046 166.702 0 266.28 115.3 266.28 308.409v359.005c0 14.715-11.893 26.607-26.607 26.607zm-181.418-53.214l155.012-.004V616.815c0-162.268-77.606-255.193-213.065-255.193-90.507 0-134.45 45.153-162.066 86.476-3.225 10.885-13.506 18.949-25.6 18.949h-1.41c-9.677 0-18.546-5.242-23.181-13.707-3.628-6.653-4.435-14.313-2.016-21.368v-55.835H389.443c1.411 111.068 0 470.477-.403 572.877h154.809V626.09c0-26.809 2.822-46.16 8.869-60.875 23.383-57.852 72.566-92.724 131.427-92.724 83.855 0 132.03 61.28 132.03 168.113v308.611h.204zm-569.246 53.21H38.904c-14.715 0-26.607-11.892-26.607-26.607V349.73c0-14.715 11.892-26.608 26.607-26.608h208.227c14.715 0 26.607 11.893 26.607 26.607V975.82c0 14.715-11.892 26.608-26.607 26.608zM65.513 949.213h155.01V376.336H65.514v572.876zm77.605-658.344l-1.412-.001c-82.041 0-141.707-56.844-141.707-135.055 0-78.009 60.674-134.854 144.529-134.854 82.444 0 141.305 55.231 142.918 134.249 0 78.816-60.674 135.66-144.328 135.66zm1.41-216.492c-54.627 0-91.313 32.857-91.313 81.639 0 47.974 36.284 81.637 88.492 81.637h1.41c54.426 0 91.112-32.857 91.112-81.638-1.008-49.386-36.283-81.638-89.701-81.638z"></path>
+				  </svg>
+				</span>
+			  </a>
+			  <a href="https://www.instagram.com/itskartik.g/" target="_blank">
+				<span class="w-10 h-10 text-xl border-[2px] border-sky-200 hover:border-sky-500 text-sky-200 rounded-full inline-flex items-center justify-center hover:text-sky-500 cursor-pointer hover:-translate-y-2 transition-all duration-300">
+				  <svg stroke="currentColor" fill="currentColor" stroke-width="30" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+					<path d="M511 4c138 0 155 1 209 3 53 2 90 11 123 24 34 13 62 30 90 58s45 56 58 90c13 33 22 70 24 123 2 54 3 71 3 209s-1 155-3 209c-2 53-11 90-24 123-13 34-30 62-58 90s-56 45-90 58c-33 13-70 22-123 24-54 2-71 3-209 3s-155-1-209-3c-53-2-90-11-123-24-34-13-62-30-90-58s-45-56-58-90C18 810 9 773 7 720c-2-54-3-71-3-209s1-155 3-209c2-53 11-90 24-123 13-34 30-62 58-90s56-45 90-58c33-13 70-22 123-24 54-2 71-3 209-3zm0 66c-144 0-161 1-217 3-52 2-81 12-100 19-49 20-82 53-102 102-7 19-17 48-19 100-2 56-3 73-3 217s1 161 3 217c2 52 12 81 19 100 20 49 53 82 102 102 19 7 48 17 100 19 56 2 73 3 217 3s161-1 217-3c52-2 81-12 100-19 49-20 82-53 102-102 7-19 17-48 19-100 2-56 3-73 3-217s-1-161-3-217c-2-52-12-81-19-100-20-49-53-82-102-102-19-7-48-17-100-19-56-2-73-3-217-3zm0 644c112 0 203-91 203-203s-91-203-203-203-203 91-203 203 91 203 203 203zm0-463c144 0 260 116 260 260S655 771 511 771 251 655 251 511s116-260 260-260zm332-10c0 34-28 60-62 60s-60-26-60-60 26-62 60-62 62 28 62 62z"></path>
+				  </svg>
+				</span>
+			  </a>
+			</div>
+		</main>
+	  </section>
+  </div>
+
+   <div class="flex items-center justify-center mx-auto p-4 mb-4 max-w-full">
+	  <section id="contact" class="px-0 sm:px-40">
+		<main class="flex flex-col gap-4 items-center justify-center">
+			<div class="navbar-link text-sky-500 text-xs font-semibold mt-8">
+				<p>Built by Kartik Gupta</p>
+			</div>
+		</main>
+	  </section>
+   </div>
+    <!-- <div class="h-screen flex items-center mx-auto p-4"> -->
+	  <!-- <section id="about" class="px-40"> -->
+		<!-- <h1 class="text-9xl font-bold text-white">Under Development...</h1> -->
+	  <!-- </section> -->
+  <!-- </div> -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script>
+  $(document).ready(function() {
+    const tabs = ['1st', '2nd'];
+
+    $.each(tabs, function(index, tab) {
+      $("#" + tab + "Tab").click(function() {
+        // Remove active classes from all tabs except the clicked one
+        $.each(tabs, function(_, t) {
+          if (t !== tab) {
+			$("#" + t + "Tab").addClass("border-sky-500/[.2]");
+            $("#" + t + "Tab").removeClass("border-sky-500 text-sky-500");
+          }
+        });
+
+        // Add active classes to clicked tab
+        $(this).addClass("border-sky-500 text-sky-500");
+        $(this).removeClass("border-sky-500/[.2]");
+
+        // Remove active classes from all tabs' content
+        $.each(tabs, function(_, t) {
+          $("#" + t + "Content").addClass("hidden");
+        });
+
+        // Show corresponding content
+        $("#" + tab + "Content").removeClass("hidden");
+      });
+    });
+
+    // Initially activate the Angular tab
+    $("#angularTab").click();
+  });
+</script>
+<script>
+    $(document).ready(function() {
+      $("#sidebarButton").click(function() {
+        $('#sidebar').removeClass('hidden');
+		setTimeout(function() {
+		  $('#sidebar').removeClass('opacity-0').addClass('opacity-100');
+		}, 0);
+      });
+	  $("#sidebarCancel").click(function() {
+		$('#sidebar').addClass('opacity-0').removeClass('opacity-100');
+		setTimeout(function() {
+		  $('#sidebar').addClass('hidden');
+		}, 500);
+      });
+    });
+  </script>
+
+</body>
+</html>
